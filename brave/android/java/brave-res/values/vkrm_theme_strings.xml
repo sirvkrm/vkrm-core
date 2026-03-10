@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2026 The Brave Authors. All rights reserved.
+     This Source Code Form is subject to the terms of the Mozilla Public
+     License, v. 2.0. If a copy of the MPL was not distributed with this file,
+     You can obtain one at https://mozilla.org/MPL/2.0/. -->
+<resources>
+    <string name="vkrm_ntp_new_tab_symbol">+</string>
+    <string name="vkrm_ntp_new_tab">New tab</string>
+    <string name="vkrm_ntp_downloads">Downloads</string>
+    <string name="vkrm_ntp_more">More</string>
+    <string name="vkrm_onboarding_welcome_title">Welcome to VKRM</string>
+    <string name="vkrm_onboarding_welcome_text">A fast, privacy-focused browser for everyday use.</string>
+    <string name="vkrm_onboarding_transparency_title">Independent and experimental</string>
+    <string name="vkrm_onboarding_transparency_text">VKRM is an independent fork of the Brave Browser, maintained by a solo developer. It is experimental and open-source. If you\'re a developer and want to help, you can open the project GitHub page below.</string>
+    <string name="vkrm_onboarding_get_started">Continue</string>
+    <string name="vkrm_onboarding_help_cta">I\'ll help</string>
+    <string name="vkrm_search_choice_close">Close</string>
+    <string name="vkrm_theme_color_title">Color</string>
+    <string name="vkrm_theme_color_ocean_blue">Ocean Blue (Default)</string>
+    <string name="vkrm_theme_color_ice_blue">Ice Blue</string>
+    <string name="vkrm_theme_color_lagoon_blue">Lagoon Blue</string>
+    <string name="vkrm_theme_color_cyan_wave">Cyan Wave</string>
+    <string name="vkrm_theme_color_sky_blue">Sky Blue</string>
+    <string name="vkrm_theme_color_deep_ocean">Deep Ocean</string>
+    <string name="vkrm_theme_color_midnight_navy">Midnight Navy</string>
+    <string name="vkrm_theme_color_harbor_blue">Harbor Blue</string>
+    <string name="vkrm_theme_color_frost_blue">Frost Blue</string>
+    <string name="vkrm_theme_color_custom">Custom color</string>
+    <string name="vkrm_theme_color_custom_summary">Custom color (%1$s)</string>
+    <string name="vkrm_custom_color_title">Custom color</string>
+    <string name="vkrm_custom_color_instruction">Drag inside the color circle to choose a color.</string>
+    <string name="vkrm_custom_color_selected">Selected</string>
+</resources>

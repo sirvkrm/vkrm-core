@@ -1,0 +1,14 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="144" y1="96" x2="880" y2="944" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#324F8E"/>
+      <stop offset="1" stop-color="#0A1536"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(418 246) rotate(48.2) scale(364 388)">
+      <stop stop-color="#6EDAF0" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#6EDAF0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#bgGlow)"/>
+</svg>

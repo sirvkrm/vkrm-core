@@ -1,0 +1,28 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ringOuter" x1="230" y1="765" x2="807" y2="234" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C9F4FA"/>
+      <stop offset="0.42" stop-color="#6EDAF0"/>
+      <stop offset="1" stop-color="#0096C7"/>
+    </linearGradient>
+    <linearGradient id="ringMid" x1="284" y1="762" x2="792" y2="278" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#74E5F3"/>
+      <stop offset="0.45" stop-color="#1BB5E4"/>
+      <stop offset="1" stop-color="#0065B0"/>
+    </linearGradient>
+    <linearGradient id="ringInner" x1="347" y1="717" x2="752" y2="329" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#194DB7"/>
+      <stop offset="1" stop-color="#2C89FF"/>
+    </linearGradient>
+    <filter id="shadow" x="90" y="100" width="844" height="814" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#071126" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <path d="M288 721C173 559 188 358 362 240C523 131 732 184 827 321C713 257 578 245 458 294C306 357 248 503 288 721Z" fill="url(#ringOuter)" fill-opacity="0.94"/>
+    <path d="M378 780C268 718 214 578 248 444C294 262 491 156 684 208C771 232 841 286 887 359C764 281 622 267 500 312C353 366 286 504 378 780Z" fill="url(#ringMid)" fill-opacity="0.96"/>
+    <path d="M531 723C416 674 359 551 382 432C407 301 525 213 655 223C730 229 797 267 840 327C748 295 646 297 560 332C446 379 394 474 531 723Z" fill="url(#ringInner)"/>
+    <circle cx="515" cy="521" r="194" fill="#11224E"/>
+    <path d="M349 493L470 609L714 367L525 726L349 493Z" fill="#FCFCFD"/>
+  </g>
+</svg>

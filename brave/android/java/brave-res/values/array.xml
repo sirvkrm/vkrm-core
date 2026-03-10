@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (c) 2021 The Brave Authors. All rights reserved.
+     This Source Code Form is subject to the terms of the Mozilla Public
+     License, v. 2.0. If a copy of the MPL was not distributed with this file,
+     You can obtain one at https://mozilla.org/MPL/2.0/.
+-->
+<resources>
+    <string-array name="blockTrackersAdsTexts">
+        <item>@string/block_trackers_ads_option_1</item>
+        <item>@string/block_trackers_ads_option_2</item>
+        <item>@string/block_trackers_ads_option_3</item>
+    </string-array>
+
+    <string-array name="blockCookiesTexts">
+        <item>@string/block_cookies_option_1</item>
+        <item>@string/block_cookies_option_2</item>
+        <item>@string/block_cookies_option_3</item>
+    </string-array>
+    
+    <string-array name="blockFingerprintingTexts">
+        <item>@string/block_fingerprinting_option_1</item>
+        <item>@string/block_fingerprinting_option_2</item>
+        <item>@string/block_fingerprinting_option_3</item>
+    </string-array>
+
+    <string-array name="httpsUpgradeTexts">
+        <item>@string/https_upgrade_option_1</item>
+        <item>@string/https_upgrade_option_2</item>
+        <item>@string/https_upgrade_option_3</item>
+    </string-array>
+
+    <string-array name="requestOTRTexts">
+        <item>@string/request_otr_option_1</item>
+        <item>@string/request_otr_option_2</item>
+        <item>@string/request_otr_option_3</item>
+    </string-array>
+
+    <string-array name="settingsDefaultWalletTexts">
+        <item>@string/settings_default_wallet_option_1</item>
+        <item>@string/settings_default_wallet_option_2</item>
+    </string-array>
+
+    <string-array name="autoShredTexts">
+        <item>@string/brave_shields_auto_shred_never_mode_text</item>
+        <item>@string/brave_shields_auto_shred_site_tab_closed_mode_text</item>
+        <item>@string/brave_shields_auto_shred_app_close_mode_text</item>
+    </string-array>
+
+    <string-array name="vkrmThemeColorEntries">
+        <item>@string/vkrm_theme_color_ocean_blue</item>
+        <item>@string/vkrm_theme_color_ice_blue</item>
+        <item>@string/vkrm_theme_color_lagoon_blue</item>
+        <item>@string/vkrm_theme_color_cyan_wave</item>
+        <item>@string/vkrm_theme_color_sky_blue</item>
+        <item>@string/vkrm_theme_color_deep_ocean</item>
+        <item>@string/vkrm_theme_color_midnight_navy</item>
+        <item>@string/vkrm_theme_color_harbor_blue</item>
+        <item>@string/vkrm_theme_color_frost_blue</item>
+        <item>@string/vkrm_theme_color_custom</item>
+    </string-array>
+
+    <string-array name="vkrmThemeColorValues">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>custom</item>
+    </string-array>
+
+</resources>
