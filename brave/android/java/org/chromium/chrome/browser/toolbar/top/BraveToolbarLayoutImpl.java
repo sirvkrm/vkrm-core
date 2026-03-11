@@ -16,6 +16,8 @@ import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -1005,7 +1007,7 @@ public abstract class BraveToolbarLayoutImpl extends ToolbarLayout
 
                 ImageButton braveShieldButton =
                         new ImageButton(getContext(), null, R.style.ToolbarButton);
-                braveShieldButton.setImageResource(R.drawable.btn_brave);
+                applyBrandedShieldsButtonState(braveShieldButton, true);
                 FrameLayout.LayoutParams braveShieldParams =
                         new FrameLayout.LayoutParams(FrameLayout.LayoutParams.WRAP_CONTENT,
                                 FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -1368,13 +1370,12 @@ public abstract class BraveToolbarLayoutImpl extends ToolbarLayout
 
         if (tab == null) {
             mBraveShieldsButton.setSelected(false);
-            mBraveShieldsButton.setImageResource(R.drawable.btn_brave_off);
+            applyBrandedShieldsButtonState(mBraveShieldsButton, false);
             return;
         }
         boolean shieldsOn = isShieldsOnForTab(tab);
         mBraveShieldsButton.setSelected(shieldsOn);
-        mBraveShieldsButton.setImageResource(
-                shieldsOn ? R.drawable.btn_brave : R.drawable.btn_brave_off);
+        applyBrandedShieldsButtonState(mBraveShieldsButton, shieldsOn);
 
         if (mRewardsLayout == null) return;
         if (isIncognito()) {
@@ -1651,10 +1652,25 @@ public abstract class BraveToolbarLayoutImpl extends ToolbarLayout
 
     public void updateMenuButtonState() {
         if (BottomToolbarConfiguration.isBraveBottomControlsEnabled()) {
-            BraveMenuButtonCoordinator.setMenuFromBottom(mIsBottomControlsVisible);
+            BraveMenuButtonCoordinator.setMenuFromBottom(
+                    isMenuButtonOnBottomControls() || isMenuOnBottomWithBottomAddressBar());
         } else {
             BraveMenuButtonCoordinator.setMenuFromBottom(isMenuOnBottomWithBottomAddressBar());
         }
+    }
+
+    private void applyBrandedShieldsButtonState(ImageButton button, boolean shieldsOn) {
+        button.setImageResource(R.drawable.vkrm_ntp_shields_icon);
+        if (shieldsOn) {
+            button.clearColorFilter();
+            button.setAlpha(1f);
+            return;
+        }
+
+        ColorMatrix grayscale = new ColorMatrix();
+        grayscale.setSaturation(0f);
+        button.setColorFilter(new ColorMatrixColorFilter(grayscale));
+        button.setAlpha(0.56f);
     }
 
     @Override
