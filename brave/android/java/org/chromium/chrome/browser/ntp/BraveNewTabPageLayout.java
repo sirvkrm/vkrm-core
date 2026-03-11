@@ -15,9 +15,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
@@ -31,10 +34,12 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener;
@@ -65,8 +70,6 @@ import org.chromium.chrome.browser.brave_news.BraveNewsControllerFactory;
 import org.chromium.chrome.browser.brave_news.BraveNewsUtils;
 import org.chromium.chrome.browser.brave_news.CardBuilderFeedCard;
 import org.chromium.chrome.browser.brave_news.LinearLayoutManagerWrapper;
-import org.chromium.chrome.browser.download.DownloadOpenSource;
-import org.chromium.chrome.browser.download.DownloadUtils;
 import org.chromium.chrome.browser.brave_news.models.FeedItemCard;
 import org.chromium.chrome.browser.brave_news.models.FeedItemsCard;
 import org.chromium.chrome.browser.brave_stats.BraveStatsUtil;
@@ -1449,20 +1452,22 @@ public class BraveNewTabPageLayout extends NewTabPageLayout
             legacyActions.setVisibility(View.GONE);
         }
 
-        View newTabButton = findViewById(R.id.vkrm_ntp_new_tab_button);
-        if (newTabButton != null) {
-            newTabButton.setOnClickListener(view -> TabUtils.openNewTab());
-        }
-
-        View downloadsButton = findViewById(R.id.vkrm_ntp_downloads_button);
-        if (downloadsButton != null) {
-            downloadsButton.setOnClickListener(
-                    view ->
-                            DownloadUtils.showDownloadManager(
-                                    mActivity,
-                                    getTab(),
-                                    mProfile == null ? null : mProfile.getOtrProfileId(),
-                                    DownloadOpenSource.MENU));
+        View shieldsButton = findViewById(R.id.vkrm_ntp_shields_button);
+        if (shieldsButton != null) {
+            shieldsButton.setOnClickListener(
+                    view -> {
+                        View toolbarShieldsButton = mActivity.findViewById(R.id.brave_shields_button);
+                        if (toolbarShieldsButton == null) {
+                            toolbarShieldsButton =
+                                    mActivity.findViewById(R.id.brave_shields_button_layout);
+                        }
+                        if (toolbarShieldsButton != null) {
+                            toolbarShieldsButton.performClick();
+                        }
+                        post(this::syncSearchBoxShieldsButtonState);
+                        postDelayed(this::syncSearchBoxShieldsButtonState, 350);
+                        postDelayed(this::syncSearchBoxShieldsButtonState, 900);
+                    });
         }
 
         View moreButton = findViewById(R.id.vkrm_ntp_more_button);
@@ -1478,6 +1483,53 @@ public class BraveNewTabPageLayout extends NewTabPageLayout
                         }
                     });
         }
+
+        syncSearchBoxShieldsButtonState();
+    }
+
+    private void syncSearchBoxShieldsButtonState() {
+        ImageView searchBoxShieldsButton = findViewById(R.id.vkrm_ntp_shields_button);
+        if (searchBoxShieldsButton == null) {
+            return;
+        }
+
+        searchBoxShieldsButton.clearColorFilter();
+        searchBoxShieldsButton.setAlpha(1f);
+
+        if (isToolbarShieldsEnabled()) {
+            return;
+        }
+
+        ColorMatrix disabledMatrix = new ColorMatrix();
+        disabledMatrix.setSaturation(0f);
+        searchBoxShieldsButton.setColorFilter(new ColorMatrixColorFilter(disabledMatrix));
+        searchBoxShieldsButton.setAlpha(0.58f);
+    }
+
+    private boolean isToolbarShieldsEnabled() {
+        ImageButton toolbarShieldsButton = mActivity.findViewById(R.id.brave_shields_button);
+        if (toolbarShieldsButton == null) {
+            return true;
+        }
+
+        if (toolbarShieldsButton.isSelected()) {
+            return true;
+        }
+
+        Drawable currentDrawable = toolbarShieldsButton.getDrawable();
+        Drawable offDrawable =
+                AppCompatResources.getDrawable(getContext(), R.drawable.btn_brave_off);
+        if (currentDrawable == null || offDrawable == null) {
+            return toolbarShieldsButton.isSelected();
+        }
+
+        Drawable.ConstantState currentState = currentDrawable.getConstantState();
+        Drawable.ConstantState offState = offDrawable.getConstantState();
+        if (currentState == null || offState == null) {
+            return toolbarShieldsButton.isSelected();
+        }
+
+        return currentState != offState;
     }
 
     private void initilizeSponsoredTab() {

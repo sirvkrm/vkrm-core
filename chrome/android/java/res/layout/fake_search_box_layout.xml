@@ -105,49 +105,15 @@ found in the LICENSE file.
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/vkrm_ntp_new_tab_button"
-                android:layout_width="wrap_content"
+            <org.chromium.ui.widget.ChromeImageView
+                android:id="@+id/vkrm_ntp_shields_button"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
+                android:contentDescription="@string/accessibility_toolbar_btn_brave_shields"
                 android:foreground="@drawable/oval_ripple"
-                android:gravity="center"
-                android:minWidth="56dp"
-                android:orientation="horizontal"
-                android:paddingHorizontal="6dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/vkrm_ntp_new_tab_symbol"
-                    android:textColor="@color/menu_icon_color"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:text="@string/vkrm_ntp_new_tab"
-                    android:textColor="@color/menu_icon_color"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="18dp"
-                android:background="@color/vkrm_ntp_action_divider" />
-
-            <TextView
-                android:id="@+id/vkrm_ntp_downloads_button"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:foreground="@drawable/oval_ripple"
-                android:gravity="center"
-                android:minWidth="74dp"
-                android:paddingHorizontal="8dp"
-                android:text="@string/vkrm_ntp_downloads"
-                android:textColor="@color/menu_icon_color"
-                android:textSize="12sp" />
+                android:padding="6dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/vkrm_ntp_shields_icon" />
 
             <View
                 android:layout_width="1dp"

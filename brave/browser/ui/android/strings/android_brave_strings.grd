@@ -258,7 +258,7 @@ This file contains all "about" strings.  It is set to NOT be translated, in tran
         Turn on Brave notifications
       </message>
       <message name="IDS_ACCESSIBILITY_TOOLBAR_BTN_BRAVE_SHIELDS" desc="Content description for the button that is enable, disable Brave Shields.">
-        Enable/Disable Brave Shields
+        Enable/Disable VKRM Shields
       </message>
     <message name="IDS_ACCESSIBILITY_TOOLBAR_BTN_BRAVE_PIP" desc="Content description for the button that triggers picture-in-picture mode for YouTube videos.">
       Enter picture-in-picture mode
@@ -826,7 +826,7 @@ This file contains all "about" strings.  It is set to NOT be translated, in tran
         Troubleshooting onboarding
       </message>
       <message name="IDS_BRAVE_SHIELDS_ONBOARDING_TITLE" desc="Title for brave shield page">
-        Brave Shields
+        VKRM Shields
       </message>
       <message name="IDS_EARN_TOKENS" desc="Partial Text for brave rewards page">
         Earn <ph name="TOKEN">%1$s<ex>token</ex></ph>s
@@ -1446,7 +1446,7 @@ Are you sure you want to do this?
         DOWN
       </message>
       <message name="IDS_BRAVE_SHIELDS_DOWN_TEXT" desc="Text for brave shields down.">
-        You're browsing this site without Brave's privacy protections. Does it not work right with Shields up?
+        You're browsing this site without VKRM's privacy protections. Does it not work right with Shields up?
       </message>
       <message name="IDS_BRAVE_ETHEREUM_NETWORKS" desc="Text Ethereum networks label.">
         Ethereum networks
